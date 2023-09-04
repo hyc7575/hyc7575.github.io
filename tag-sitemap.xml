@@ -86,13 +86,6 @@
     </url>
 
     <url>
-        <loc>http://hyc7575.github.io/tags/cookie-parser/</loc>
-        <lastmod>2023-09-04T17:32:04.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hyc7575.github.io/tags/array/</loc>
         <lastmod>2023-09-04T17:32:04.973Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -101,6 +94,13 @@
 
     <url>
         <loc>http://hyc7575.github.io/tags/javascript-array/</loc>
+        <lastmod>2023-09-04T17:32:04.973Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hyc7575.github.io/tags/cookie-parser/</loc>
         <lastmod>2023-09-04T17:32:04.973Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
