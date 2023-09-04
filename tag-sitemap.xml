@@ -37,13 +37,6 @@
     </url>
 
     <url>
-        <loc>http://hyc7575.github.io/tags/mysql/</loc>
-        <lastmod>2023-09-04T17:51:29.342Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://hyc7575.github.io/tags/Router/</loc>
         <lastmod>2023-09-04T17:51:29.342Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -52,6 +45,13 @@
 
     <url>
         <loc>http://hyc7575.github.io/tags/middleware/</loc>
+        <lastmod>2023-09-04T17:51:29.342Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://hyc7575.github.io/tags/mysql/</loc>
         <lastmod>2023-09-04T17:51:29.342Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

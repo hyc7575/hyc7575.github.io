@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Vue.js - Directive(지시자) 1/2 | hyc7575 blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="이미지 출처(https://vuejs.org/images/logo.png) 디렉티브란 Vue.js 에서 사용되는 특별한 속성 입니다. Angular1 을 사용해보셨던 분들은 익숙할 것 입니다. Angular에서 ng- 를 사용한다면 Vue 에서는 v- 라는 접두사를 사용합니다. 이번 포스팅에서는 Vue.js 에서 기본적으로 제공하는 디렉티브 몇가지를 알아보">
+<meta name="keywords" content="javascript,vue,vue js,directive,디렉티브,지시자">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js - Directive(지시자) 1&#x2F;2">
+<meta property="og:url" content="http://hyc7575.github.io/2017/06/27/2017-06-21-vue-directive/index.html">
+<meta property="og:site_name" content="hyc7575 blog">
+<meta property="og:description" content="이미지 출처(https://vuejs.org/images/logo.png) 디렉티브란 Vue.js 에서 사용되는 특별한 속성 입니다. Angular1 을 사용해보셨던 분들은 익숙할 것 입니다. Angular에서 ng- 를 사용한다면 Vue 에서는 v- 라는 접두사를 사용합니다. 이번 포스팅에서는 Vue.js 에서 기본적으로 제공하는 디렉티브 몇가지를 알아보">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://user-images.githubusercontent.com/14171723/27375487-5582b6dc-56aa-11e7-8426-d13e7ea241c3.png">
+<meta property="og:updated_time" content="2023-09-04T17:51:29.346Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.js - Directive(지시자) 1&#x2F;2">
+<meta name="twitter:description" content="이미지 출처(https://vuejs.org/images/logo.png) 디렉티브란 Vue.js 에서 사용되는 특별한 속성 입니다. Angular1 을 사용해보셨던 분들은 익숙할 것 입니다. Angular에서 ng- 를 사용한다면 Vue 에서는 v- 라는 접두사를 사용합니다. 이번 포스팅에서는 Vue.js 에서 기본적으로 제공하는 디렉티브 몇가지를 알아보">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/14171723/27375487-5582b6dc-56aa-11e7-8426-d13e7ea241c3.png">
+  
+    <link rel="alternate" href="/atom.xml" title="hyc7575 blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3869950789154316" crossorigin="anonymous"></script>
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hyc7575 blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hyc7575.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-06-21-vue-directive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/27/2017-06-21-vue-directive/" class="article-date">
+  <time datetime="2017-06-27T01:36:24.000Z" itemprop="datePublished">2017-06-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/categories/Javascript/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue.js - Directive(지시자) 1/2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>이미지 출처(<a href="https://vuejs.org/images/logo.png" target="_blank" rel="noopener">https://vuejs.org/images/logo.png</a>)</p>
+<p>디렉티브란 Vue.js 에서 사용되는 특별한 속성 입니다. Angular1 을 사용해보셨던 분들은 익숙할 것 입니다. Angular에서 <code>ng-</code> 를 사용한다면 Vue 에서는 <code>v-</code> 라는 접두사를 사용합니다. 이번 포스팅에서는 Vue.js 에서 기본적으로 제공하는 디렉티브 몇가지를 알아보려고 합니다.</p>
+<h2 id="v-text와-v-html"><a href="#v-text와-v-html" class="headerlink" title="v-text와 v-html"></a>v-text와 v-html</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    &#123;&#123;text&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-text</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="comment">&lt;!-- &#123;&#123;text&#125;&#125; 와 동일 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-html</span>=<span class="string">"htmlText"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        text: <span class="string">'안녕안녕~'</span>,</span><br><span class="line">        htmlText: <span class="string">'&lt;span style="color: red"&gt;하이하이~&lt;/span&gt; !!'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="300" data-theme-id="11131" data-slug-hash="KqmeoZ" data-default-tab="result" data-user="small" data-embed-version="2" data-pen-title="KqmeoZ" class="codepen">See the Pen <a href="https://codepen.io/small/pen/KqmeoZ/" target="_blank" rel="noopener">KqmeoZ</a> by keun hyeok (<a href="https://codepen.io/small" target="_blank" rel="noopener">@small</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<ul>
+<li><p>v-text: <code>{{ }}</code> 와 같은 기능을 합니다. 해당 엘리먼트의 값이 data의 text 값으로 설정 된 것을 볼 수 있습니다.</p>
+</li>
+<li><p>v-html: html 코드를 랜더링 할 경우 사용합니다. v-text나 머스타치 구문을 사용할 경우 해당 string값 그대로 표시됩니다.</p>
+</li>
+</ul>
+<h2 id="v-show와-v-if"><a href="#v-show와-v-if" class="headerlink" title="v-show와 v-if"></a>v-show와 v-if</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>v-show<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">"isShow"</span>&gt;</span>&#123;&#123;text&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>v-if<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-if</span>=<span class="string">"isShow"</span>&gt;</span>&#123;&#123;text&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"toggleText"</span>&gt;</span>토글<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="comment">&lt;!-- 이벤트 바인딩 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        isShow: <span class="literal">false</span>,</span><br><span class="line">        text: <span class="string">'보일까 말까!'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        toggleText: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.isShow = !<span class="keyword">this</span>.isShow;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>v-show와 v-if 모두 화면에 표시하는지 안하는지에 대한 지시자 입니다.</p>
+<ul>
+<li><p>v-show: css의 display 속성에 의하여 컨트롤 됩니다. 값이 false여도 랜더링은 되지만  display: none 처리가 되어있는 것 입니다.</p>
+</li>
+<li><p>v-if: 해당 엘리먼트의 랜더링 여부가 판단됩니다. 값이 false면 랜더링이 되지 않습니다. true라면 랜더링이 될 것이며 true에서 false로 변경될 때는 해당 엘리먼트가 삭제됩니다.</p>
+</li>
+</ul>
+<p>아래 이미지를 보면 v-if는 해당 엘리먼트가 랜더링 되지 않았고, v-show 경우 display: none 처리가 되어있는 것을 보실 수 있습니다.</p>
+<p><img src="https://user-images.githubusercontent.com/14171723/27375487-5582b6dc-56aa-11e7-8426-d13e7ea241c3.png" alt="v-if"></p>
+<p></p><p data-height="300" data-theme-id="11131" data-slug-hash="mwmzRd" data-default-tab="result" data-user="small" data-embed-version="2" data-pen-title="mwmzRd" class="codepen">See the Pen <a href="https://codepen.io/small/pen/mwmzRd/" target="_blank" rel="noopener">mwmzRd</a> by keun hyeok (<a href="https://codepen.io/small" target="_blank" rel="noopener">@small</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="v-if의-else"><a href="#v-if의-else" class="headerlink" title="v-if의 else"></a>v-if의 else</h3><p>if문이 있으니 else 와 else if도 자연스럽게 따라오게 됩니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"state === 0"</span>&gt;</span></span><br><span class="line">        if 입니다.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else-if</span>=<span class="string">"state === 1"</span>&gt;</span></span><br><span class="line">        else if 입니다.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">        else 입니다.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"changeState"</span>&gt;</span>토글<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        state: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        changeState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 0 ~ 2 랜덤 부여</span></span><br><span class="line">            <span class="keyword">var</span> state = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">3</span>, <span class="number">10</span>);</span><br><span class="line">            alert(state);</span><br><span class="line">            <span class="keyword">this</span>.state = state;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="300" data-theme-id="11131" data-slug-hash="MomzyZ" data-default-tab="result" data-user="small" data-embed-version="2" data-pen-title="MomzyZ" class="codepen">See the Pen <a href="https://codepen.io/small/pen/MomzyZ/" target="_blank" rel="noopener">MomzyZ</a> by keun hyeok (<a href="https://codepen.io/small" target="_blank" rel="noopener">@small</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>바로 v-else-if와 v-else는 <code>바로 이전 형제엘리먼트가 v-if</code> 일 경우 사용한다는 점만 기억해두시면 됩니다. ( 우리가 아는 if와 같습니다! )</p>
+<h2 id="v-for-디렉티브"><a href="#v-for-디렉티브" class="headerlink" title="v-for 디렉티브"></a>v-for 디렉티브</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>v-for example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"array-area"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>array<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in arrayItem"</span>&gt;</span>&#123;&#123;index&#125;&#125; : &#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"obj-area"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>object<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"(item, key, index) in objItem"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dt</span>&gt;</span>&#123;&#123;key&#125;&#125;<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dd</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"num-area"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>number<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"n in 7"</span>&gt;</span>&#123;&#123;n&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"string-area"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>string<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"s in text"</span>&gt;</span>&#123;&#123;s&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        arrayItem: [<span class="string">'arr1'</span>, <span class="string">'arr2'</span>, <span class="string">'arr3'</span>, <span class="string">'arr4'</span>],</span><br><span class="line">        objItem: &#123;</span><br><span class="line">            name: <span class="string">'hyeok'</span>,</span><br><span class="line">            age: <span class="number">22</span>,</span><br><span class="line">            job: <span class="string">'front end developer'</span>,</span><br><span class="line">            birthday: <span class="string">'0927'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        text: <span class="string">'안녕해요!'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="300" data-theme-id="11131" data-slug-hash="gRRgzX" data-default-tab="result" data-user="small" data-embed-version="2" data-pen-title="gRRgzX" class="codepen">See the Pen <a href="https://codepen.io/small/pen/gRRgzX/" target="_blank" rel="noopener">gRRgzX</a> by keun hyeok (<a href="https://codepen.io/small" target="_blank" rel="noopener">@small</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>v-for디렉티브는 굉장히 자주 사용되는 디렉티브 중 하나 입니다. 이 디렉티브는 기본적으로 <code>alias in(of) expression</code> 문법을 사용하며 expression자리에는 뷰모델의 데이터 들 중 Array, Object, Number, String 형태를 가진 값들이 올 수 있습니다.</p>
+<ul>
+<li><p>Array: 배열을 순환하며 alias 에 해당 인덱스의 값을 부여합니다. <code>(alias, index) in expression</code> 형태로 변경하여 인덱스 값 또한 넘겨받을 수 있습니다.</p>
+</li>
+<li><p>Object: 배열과 마찬가지로 객체를 순환합니다. 순환 순서는 Object.keys()로 나열된 키의 순서로 결정됩니다. <code>(alias, key, index) in expression</code> 형태로 사용이 가능합니다.</p>
+</li>
+<li><p>Number: expression의 값 만큼 순환하며 그 값은 1부터 시작합니다.</p>
+</li>
+<li><p>String: 문자열을 한자 한자 쪼개 한 단어씩 순환하며 표기합니다.</p>
+</li>
+</ul>
+<h2 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h2><ul>
+<li><a href="https://kr.vuejs.org/v2/api/#디렉티브" target="_blank" rel="noopener">Vue 디렉티브</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hyc7575.github.io/2017/06/27/2017-06-21-vue-directive/" data-id="clm570eb1000jijv2zvhpkbw0" class="article-share-link">Share</a>
+      
+        <a href="http://hyc7575.github.io/2017/06/27/2017-06-21-vue-directive/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/directive/">directive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-js/">vue js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/디렉티브/">디렉티브</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/지시자/">지시자</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/18/2017-07-18-vue-directvie2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vue.js - Directive(지시자) 2/2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/14/2017-06-14-vue-lifeCycle/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue.js - LifeCycle</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/잡담/">잡담</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html-css/">html/css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/기타/">기타</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/기타/SVG/">SVG</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LifeCycle/">LifeCycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bcrypt/">bcrypt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/body-parser/">body-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bodyParser/">bodyParser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie-parser/">cookie-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/custom-radio/">custom radio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-bind/">data bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/directive/">directive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs-layout/">ejs-layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express-session/">express-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form-submit/">form submit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geolocation/">geolocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google-map-api/">google map api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5-geolocation/">html5 geolocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input-radio/">input radio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-array/">javascript array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-server/">javascript server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multer/">multer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs-login/">nodejs login</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/route/">route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/router/">router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ryan/">ryan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-component/">vue component</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/">vue js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-project/">vue project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weather-api/">weather api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/디렉티브/">디렉티브</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/라이언/">라이언</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/라이프사이클/">라이프사이클</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생명주기/">생명주기</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/암호화/">암호화</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/지시자/">지시자</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/LifeCycle/" style="font-size: 10px;">LifeCycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bcrypt/" style="font-size: 10px;">bcrypt</a> <a href="/tags/body-parser/" style="font-size: 10px;">body-parser</a> <a href="/tags/bodyParser/" style="font-size: 10px;">bodyParser</a> <a href="/tags/cookie-parser/" style="font-size: 10px;">cookie-parser</a> <a href="/tags/css/" style="font-size: 11.43px;">css</a> <a href="/tags/custom-radio/" style="font-size: 11.43px;">custom radio</a> <a href="/tags/data-bind/" style="font-size: 10px;">data bind</a> <a href="/tags/directive/" style="font-size: 14.29px;">directive</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/ejs-layout/" style="font-size: 10px;">ejs-layout</a> <a href="/tags/express/" style="font-size: 15.71px;">express</a> <a href="/tags/express-session/" style="font-size: 12.86px;">express-session</a> <a href="/tags/form-submit/" style="font-size: 10px;">form submit</a> <a href="/tags/geolocation/" style="font-size: 10px;">geolocation</a> <a href="/tags/google-map-api/" style="font-size: 10px;">google map api</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/html5-geolocation/" style="font-size: 10px;">html5 geolocation</a> <a href="/tags/input-radio/" style="font-size: 11.43px;">input radio</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-array/" style="font-size: 10px;">javascript array</a> <a href="/tags/javascript-server/" style="font-size: 18.57px;">javascript server</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/multer/" style="font-size: 10px;">multer</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 18.57px;">nodejs</a> <a href="/tags/nodejs-login/" style="font-size: 12.86px;">nodejs login</a> <a href="/tags/route/" style="font-size: 10px;">route</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/ryan/" style="font-size: 10px;">ryan</a> <a href="/tags/server/" style="font-size: 18.57px;">server</a> <a href="/tags/vue/" style="font-size: 17.14px;">vue</a> <a href="/tags/vue-component/" style="font-size: 10px;">vue component</a> <a href="/tags/vue-js/" style="font-size: 17.14px;">vue js</a> <a href="/tags/vue-project/" style="font-size: 12.86px;">vue project</a> <a href="/tags/vue-cli/" style="font-size: 12.86px;">vue-cli</a> <a href="/tags/weather-api/" style="font-size: 10px;">weather api</a> <a href="/tags/디렉티브/" style="font-size: 14.29px;">디렉티브</a> <a href="/tags/라이언/" style="font-size: 10px;">라이언</a> <a href="/tags/라이프사이클/" style="font-size: 10px;">라이프사이클</a> <a href="/tags/생명주기/" style="font-size: 10px;">생명주기</a> <a href="/tags/암호화/" style="font-size: 10px;">암호화</a> <a href="/tags/지시자/" style="font-size: 14.29px;">지시자</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">9월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">12월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">4월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">3월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/09/05/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/21/2018-12-21-Vue-Segment/">Vue.js - iOS Segment 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/10/2018-09-10-image-retina/">img태그 retina사이즈 대응</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/2018-04-03-svg-ryan/">SVG - 심심해서 만들어본 라이언</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/22/2018-03-22-vue-cli-component/">Vue.js - Vue-cli를 이용한 vue 프로젝트 살펴보기 2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 keunhyeok jeon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hyc7575';
+  
+  var disqus_url = 'http://hyc7575.github.io/2017/06/27/2017-06-21-vue-directive/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

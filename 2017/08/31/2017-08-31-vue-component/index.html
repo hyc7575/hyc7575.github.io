@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Vue.js - Component(컴포넌트) 1 | hyc7575 blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="이미지 출처(https://vuejs.org/images/logo.png) 컴포넌트라 함은 웹 어플리케이션을 구성하는 하나하나의 부품입니다. Vue.js에서는 이 컴포넌트를 가장 강력한 기능 중 하나라고 소개하고 있습니다. 컴포넌트란 무엇인가 이런 자세한 설명은 생략하고 Vue.js에서 컴포넌트를 사용하는 방법을 바로 알아보도록 하겠습니다. 컴포넌트 등록1">
+<meta name="keywords" content="javascript,vue,vue js,directive,디렉티브,지시자">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js - Component(컴포넌트) 1">
+<meta property="og:url" content="http://hyc7575.github.io/2017/08/31/2017-08-31-vue-component/index.html">
+<meta property="og:site_name" content="hyc7575 blog">
+<meta property="og:description" content="이미지 출처(https://vuejs.org/images/logo.png) 컴포넌트라 함은 웹 어플리케이션을 구성하는 하나하나의 부품입니다. Vue.js에서는 이 컴포넌트를 가장 강력한 기능 중 하나라고 소개하고 있습니다. 컴포넌트란 무엇인가 이런 자세한 설명은 생략하고 Vue.js에서 컴포넌트를 사용하는 방법을 바로 알아보도록 하겠습니다. 컴포넌트 등록1">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2023-09-04T17:51:29.346Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.js - Component(컴포넌트) 1">
+<meta name="twitter:description" content="이미지 출처(https://vuejs.org/images/logo.png) 컴포넌트라 함은 웹 어플리케이션을 구성하는 하나하나의 부품입니다. Vue.js에서는 이 컴포넌트를 가장 강력한 기능 중 하나라고 소개하고 있습니다. 컴포넌트란 무엇인가 이런 자세한 설명은 생략하고 Vue.js에서 컴포넌트를 사용하는 방법을 바로 알아보도록 하겠습니다. 컴포넌트 등록1">
+  
+    <link rel="alternate" href="/atom.xml" title="hyc7575 blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3869950789154316" crossorigin="anonymous"></script>
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hyc7575 blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hyc7575.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-08-31-vue-component" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/31/2017-08-31-vue-component/" class="article-date">
+  <time datetime="2017-08-31T05:04:42.000Z" itemprop="datePublished">2017-08-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/categories/Javascript/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue.js - Component(컴포넌트) 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>이미지 출처(<a href="https://vuejs.org/images/logo.png" target="_blank" rel="noopener">https://vuejs.org/images/logo.png</a>)</p>
+<p>컴포넌트라 함은 웹 어플리케이션을 구성하는 하나하나의 부품입니다. Vue.js에서는 이 컴포넌트를 가장 강력한 기능 중 하나라고 소개하고 있습니다. 컴포넌트란 무엇인가 이런 자세한 설명은 생략하고 Vue.js에서 컴포넌트를 사용하는 방법을 바로 알아보도록 하겠습니다.</p>
+<h2 id="컴포넌트-등록"><a href="#컴포넌트-등록" class="headerlink" title="컴포넌트 등록"></a>컴포넌트 등록</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-component</span>&gt;</span><span class="tag">&lt;/<span class="name">test-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-component</span>&gt;</span><span class="tag">&lt;/<span class="name">test-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 전역 컴포넌트 생성</span></span><br><span class="line">Vue.component(<span class="string">'test-component'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;p&gt;테스트용 컴포넌트 생성&lt;/p&gt;'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="300" data-theme-id="11131" data-slug-hash="NveaEd" data-default-tab="js,result" data-user="small" data-embed-version="2" data-pen-title="NveaEd" class="codepen">See the Pen <a href="https://codepen.io/small/pen/NveaEd/" target="_blank" rel="noopener">NveaEd</a> by keun hyeok (<a href="https://codepen.io/small" target="_blank" rel="noopener">@small</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>Vue.component</code>를 사용하여 전역 컴포넌트를 등록하면 Vue 인스턴스 내부 어디서든 해당 컴포넌트를 사용할 수 있게 됩니다. 이때 주의할 점은 컴포넌트가 사용되는 영역의 Vue 인스턴스화를 하기 전 컴포넌트를 등록해야 합니다. 이 예제에서는 test-component를 만들었고 특정 문장을 나타내는 기능을 하고 있습니다. 해당 컴포넌트를 2번 사용하였기에 일치하는 특정 문장이 2번 랜더링 되게 되었습니다.</p>
+<h2 id="컴포넌트-등록-지역"><a href="#컴포넌트-등록-지역" class="headerlink" title="컴포넌트 등록(지역)"></a>컴포넌트 등록(지역)</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-component</span>&gt;</span><span class="tag">&lt;/<span class="name">test-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ohterApp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-component</span>&gt;</span><span class="tag">&lt;/<span class="name">test-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 전역 컴포넌트 생성</span></span><br><span class="line"><span class="keyword">var</span> testComponent = &#123;</span><br><span class="line">    template: <span class="string">'&lt;p&gt;테스트용 컴포넌트 지역 생성&lt;/p&gt;'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    components: &#123;</span><br><span class="line">        <span class="string">'test-component'</span>: testComponent</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#otherApp'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="290" data-theme-id="11131" data-slug-hash="XaGZRN" data-default-tab="js,result" data-user="small" data-embed-version="2" data-pen-title="XaGZRN" class="codepen">See the Pen <a href="https://codepen.io/small/pen/XaGZRN/" target="_blank" rel="noopener">XaGZRN</a> by keun hyeok (<a href="https://codepen.io/small" target="_blank" rel="noopener">@small</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>components</code>속성을 사용하여 컴포넌트를 해당 지역에서만 사용 가능하도록 등록할 수 있습니다. 예제는 test-component를 감싸고 있는 각각의 div에 한 번씩 사용하였지만 id가 app인 div내부에서만 test-component를 랜더링 하고 있는 것을 보여주고 있습니다.</p>
+<h2 id="컴포넌트-데이터-바인딩-메서드-사용하기"><a href="#컴포넌트-데이터-바인딩-메서드-사용하기" class="headerlink" title="컴포넌트 데이터 바인딩, 메서드 사용하기"></a>컴포넌트 데이터 바인딩, 메서드 사용하기</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-component</span>&gt;</span><span class="tag">&lt;/<span class="name">test-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-component</span>&gt;</span><span class="tag">&lt;/<span class="name">test-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-component</span>&gt;</span><span class="tag">&lt;/<span class="name">test-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'test-component'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;button @click="increment"&gt;&#123;&#123;count&#125;&#125;&lt;/button&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            count: <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        increment: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.count += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="300" data-theme-id="11131" data-slug-hash="eEXVON" data-default-tab="js,result" data-user="small" data-embed-version="2" data-pen-title="eEXVON" class="codepen">See the Pen <a href="https://codepen.io/small/pen/eEXVON/" target="_blank" rel="noopener">eEXVON</a> by keun hyeok (<a href="https://codepen.io/small" target="_blank" rel="noopener">@small</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>컴포넌트의 데이터는 <code>data</code>에서 관리합니다. 여기서 중요한 점은 이 data 속성은 이전처럼 객체가 아닌 함수여야 한다는 것입니다. 이는 컴포넌트마다 각각 자신의 상태를 가질 수 있게 하기 위함이라고 합니다. 이제 버튼을 클릭하면 increment 메서드가 실행되며 해당 버튼의 count 상태를 업데이트합니다.</p>
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>Vue.js 포스팅을 시작할 때 React 와 비슷한 느낌을 받았다는 말을 언급한 적이 있었습니다. 그 이유 중 큰 비중을 차지한 것이 Vue.js에서도 Props를 이용하여 하위 컴포넌트로 데이터를 전달해주기 때문입니다. Props를 사용하는 방법을 알아보도록 합니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-component</span> <span class="attr">id</span>=<span class="string">"abk1341madgamlvba"</span> <span class="attr">:age</span>=<span class="string">"30"</span>&gt;</span><span class="tag">&lt;/<span class="name">test-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        콘솔창을 열어 경고를 확인해봅시다.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'test-component'</span>, &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        id: &#123;</span><br><span class="line">            type: <span class="built_in">String</span>,</span><br><span class="line">            required: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        name: &#123;</span><br><span class="line">            type: <span class="built_in">String</span>,</span><br><span class="line">            <span class="keyword">default</span>: <span class="string">'noname'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        age: &#123;</span><br><span class="line">            type: <span class="built_in">Number</span>,</span><br><span class="line">            validator: <span class="function"><span class="keyword">function</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">            	<span class="keyword">return</span> v &gt;= <span class="number">50</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: <span class="string">'&lt;p&gt;name: &#123;&#123;name&#125;&#125;, age: &#123;&#123;age&#125;&#125;&lt;/p&gt;'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="355" data-theme-id="11131" data-slug-hash="EvMLYJ" data-default-tab="js,result" data-user="small" data-embed-version="2" data-pen-title="EvMLYJ" class="codepen">See the Pen <a href="https://codepen.io/small/pen/EvMLYJ/" target="_blank" rel="noopener">EvMLYJ</a> by keun hyeok (<a href="https://codepen.io/small" target="_blank" rel="noopener">@small</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>props 프로퍼티로 전달받을 것으로 예상되는 데이터를 정의합니다. 타입 체크는 필수는 아니지만 원활한 개발을 위해 사용하시기를 권장합니다. 그리고 props를 받아오는 로직은 상위 컴포넌트에서 넘겨줍니다.</p>
+<p>예제를 살펴봅시다.<br>type은 instanceof를 사용하여 클래스 타입을 체크합니다. <code>[String, Number]</code>처럼 배열을 사용하면 여러 가지 타입을 설정도 가능합니다. required는 필수 값 여부를 설정하고 name props의 default는 값이 들어오지 않을 경우 기본으로 사용되는 값을 의미합니다. 예제의 결과로써 noname이 표현된 이유이기도 합니다.<br>validator는 age 값을 받아와 특정 조건을 만족하는지 안 하는지 체크하고 <code>false를 반환한다면 경고</code>를 나타내 줍니다. 예제에서는 30이라는 값이 들어왔지만 validator의 조건을 만족하지 못하여 콘솔에 경고를 표시해주고 있습니다.</p>
+<p>ps - 마크업 부분을 살펴보면 <code>:age (v-bind:age)</code>를 사용한 것 을 볼 수 있습니다. 이는 값이 String 형태로 넘어가는 것을 방지해준 것입니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hyc7575.github.io/2017/08/31/2017-08-31-vue-component/" data-id="clm570eaz000hijv2bcds7w84" class="article-share-link">Share</a>
+      
+        <a href="http://hyc7575.github.io/2017/08/31/2017-08-31-vue-component/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/directive/">directive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-js/">vue js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/디렉티브/">디렉티브</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/지시자/">지시자</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/19/2017-09-19-custom-radio-button/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          html/css 를 이용한 라디오 버튼 커스터마이징
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/18/2017-07-18-vue-directvie2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue.js - Directive(지시자) 2/2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/잡담/">잡담</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html-css/">html/css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/기타/">기타</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/기타/SVG/">SVG</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LifeCycle/">LifeCycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bcrypt/">bcrypt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/body-parser/">body-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bodyParser/">bodyParser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie-parser/">cookie-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/custom-radio/">custom radio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-bind/">data bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/directive/">directive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs-layout/">ejs-layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express-session/">express-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form-submit/">form submit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geolocation/">geolocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google-map-api/">google map api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5-geolocation/">html5 geolocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input-radio/">input radio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-array/">javascript array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-server/">javascript server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multer/">multer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs-login/">nodejs login</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/route/">route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/router/">router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ryan/">ryan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-component/">vue component</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/">vue js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-project/">vue project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weather-api/">weather api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/디렉티브/">디렉티브</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/라이언/">라이언</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/라이프사이클/">라이프사이클</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생명주기/">생명주기</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/암호화/">암호화</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/지시자/">지시자</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/LifeCycle/" style="font-size: 10px;">LifeCycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bcrypt/" style="font-size: 10px;">bcrypt</a> <a href="/tags/body-parser/" style="font-size: 10px;">body-parser</a> <a href="/tags/bodyParser/" style="font-size: 10px;">bodyParser</a> <a href="/tags/cookie-parser/" style="font-size: 10px;">cookie-parser</a> <a href="/tags/css/" style="font-size: 11.43px;">css</a> <a href="/tags/custom-radio/" style="font-size: 11.43px;">custom radio</a> <a href="/tags/data-bind/" style="font-size: 10px;">data bind</a> <a href="/tags/directive/" style="font-size: 14.29px;">directive</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/ejs-layout/" style="font-size: 10px;">ejs-layout</a> <a href="/tags/express/" style="font-size: 15.71px;">express</a> <a href="/tags/express-session/" style="font-size: 12.86px;">express-session</a> <a href="/tags/form-submit/" style="font-size: 10px;">form submit</a> <a href="/tags/geolocation/" style="font-size: 10px;">geolocation</a> <a href="/tags/google-map-api/" style="font-size: 10px;">google map api</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/html5-geolocation/" style="font-size: 10px;">html5 geolocation</a> <a href="/tags/input-radio/" style="font-size: 11.43px;">input radio</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-array/" style="font-size: 10px;">javascript array</a> <a href="/tags/javascript-server/" style="font-size: 18.57px;">javascript server</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/multer/" style="font-size: 10px;">multer</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 18.57px;">nodejs</a> <a href="/tags/nodejs-login/" style="font-size: 12.86px;">nodejs login</a> <a href="/tags/route/" style="font-size: 10px;">route</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/ryan/" style="font-size: 10px;">ryan</a> <a href="/tags/server/" style="font-size: 18.57px;">server</a> <a href="/tags/vue/" style="font-size: 17.14px;">vue</a> <a href="/tags/vue-component/" style="font-size: 10px;">vue component</a> <a href="/tags/vue-js/" style="font-size: 17.14px;">vue js</a> <a href="/tags/vue-project/" style="font-size: 12.86px;">vue project</a> <a href="/tags/vue-cli/" style="font-size: 12.86px;">vue-cli</a> <a href="/tags/weather-api/" style="font-size: 10px;">weather api</a> <a href="/tags/디렉티브/" style="font-size: 14.29px;">디렉티브</a> <a href="/tags/라이언/" style="font-size: 10px;">라이언</a> <a href="/tags/라이프사이클/" style="font-size: 10px;">라이프사이클</a> <a href="/tags/생명주기/" style="font-size: 10px;">생명주기</a> <a href="/tags/암호화/" style="font-size: 10px;">암호화</a> <a href="/tags/지시자/" style="font-size: 14.29px;">지시자</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">9월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">12월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">4월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">3월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/09/05/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/21/2018-12-21-Vue-Segment/">Vue.js - iOS Segment 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/10/2018-09-10-image-retina/">img태그 retina사이즈 대응</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/2018-04-03-svg-ryan/">SVG - 심심해서 만들어본 라이언</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/22/2018-03-22-vue-cli-component/">Vue.js - Vue-cli를 이용한 vue 프로젝트 살펴보기 2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 keunhyeok jeon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hyc7575';
+  
+  var disqus_url = 'http://hyc7575.github.io/2017/08/31/2017-08-31-vue-component/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

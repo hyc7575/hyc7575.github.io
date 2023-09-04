@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Javascript(잡담) - new Array(n)의 undefined | hyc7575 blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="작업중인 라이브러리의 메서드 중 인자로 들어오는 array들의 중복값을 리턴해주는 것이 있습니다. 이를 튜닝하면서 생긴 뻘짓을 쓰는 글 입니다. 성능 테스트를 하기 위해서 new Array(10000000); 형태로 배열을 만들어서 테스트 하였습니다. 12345var a = new Array(1000000000);var b = new Array(100000">
+<meta name="keywords" content="javascript,array,javascript array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript(잡담) - new Array(n)의 undefined">
+<meta property="og:url" content="http://hyc7575.github.io/2017/05/31/2017-05-31-javascript-newArray/index.html">
+<meta property="og:site_name" content="hyc7575 blog">
+<meta property="og:description" content="작업중인 라이브러리의 메서드 중 인자로 들어오는 array들의 중복값을 리턴해주는 것이 있습니다. 이를 튜닝하면서 생긴 뻘짓을 쓰는 글 입니다. 성능 테스트를 하기 위해서 new Array(10000000); 형태로 배열을 만들어서 테스트 하였습니다. 12345var a = new Array(1000000000);var b = new Array(100000">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14171723/26661897/6ec79062-46bb-11e7-8552-89dfed6067ac.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14171723/26662468/fcaaffc4-46be-11e7-93d7-112745424bbc.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14171723/26663318/e5f313a6-46c4-11e7-95a9-02d1fbd5fb09.png">
+<meta property="og:updated_time" content="2023-09-04T17:51:29.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript(잡담) - new Array(n)의 undefined">
+<meta name="twitter:description" content="작업중인 라이브러리의 메서드 중 인자로 들어오는 array들의 중복값을 리턴해주는 것이 있습니다. 이를 튜닝하면서 생긴 뻘짓을 쓰는 글 입니다. 성능 테스트를 하기 위해서 new Array(10000000); 형태로 배열을 만들어서 테스트 하였습니다. 12345var a = new Array(1000000000);var b = new Array(100000">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/14171723/26661897/6ec79062-46bb-11e7-8552-89dfed6067ac.png">
+  
+    <link rel="alternate" href="/atom.xml" title="hyc7575 blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3869950789154316" crossorigin="anonymous"></script>
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hyc7575 blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hyc7575.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-05-31-javascript-newArray" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/31/2017-05-31-javascript-newArray/" class="article-date">
+  <time datetime="2017-05-31T07:33:44.000Z" itemprop="datePublished">2017-05-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/categories/Javascript/잡담/">잡담</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript(잡담) - new Array(n)의 undefined
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>작업중인 라이브러리의 메서드 중 인자로 들어오는 array들의 중복값을 리턴해주는 것이 있습니다. 이를 튜닝하면서 생긴 뻘짓을 쓰는 글 입니다. 성능 테스트를 하기 위해서 <code>new Array(10000000);</code> 형태로 배열을 만들어서 테스트 하였습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000000</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000000</span>);</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">100000000</span>);</span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>);</span><br><span class="line">method(a,b,c,d); <span class="comment">// [];</span></span><br></pre></td></tr></table></figure>
+<p>성능 자체는 만족스럽게 올라갔지만 예상했던 <code>[undefined]</code>가 출력되지 않음.. Array 생성자에 인자로 정수를 넣어주면 해당 길이만큼의 undefined를 가진 배열을 반환해주는 것으로 알고 있던 나는 indexOf 메서드를 사용해보았습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line">a.indexOf(<span class="literal">undefined</span>); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<p>이상하다 생각되어서 되지도 않는 영어를 조합하며 구글링을 시작했지만 원하는 글은 찾아볼 수 없었고 심지어 indexOf를 사용하여 undefined를 검색하던 어떤 예제는 index값을 잘 반환하는 상황… 그 예제와 배열 생성하는 방법을 비교해보니<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">'test'</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>]; <span class="comment">// 해당 예제</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line">arr1.indexOf(<span class="literal">undefined</span>); <span class="comment">// 1</span></span><br><span class="line">arr2.indexOf(<span class="literal">undefined</span>); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure></p>
+<p>이 사실을 통해 예측할 수 있는 사실은 <code>new Array(n)</code>은 값이 할당되지 않고 length 속성만 지정해주지 않을까 라는 점이다. 콘솔에서 배열 내부를 열어보았다.<br><img src="https://cloud.githubusercontent.com/assets/14171723/26661897/6ec79062-46bb-11e7-8552-89dfed6067ac.png" alt="console array"></p>
+<p>예상했던대로 값이 없고 length만 지정된 배열이 들어오게 되었습니다.( 저 undefined x 10 이라는 것 때문에 여태 undefined가 할당된줄 알았습니다 ㅠ ) 저 <code>a</code>라는 배열에 요소를 추가해보겠습니다.<br><img src="https://cloud.githubusercontent.com/assets/14171723/26662468/fcaaffc4-46be-11e7-93d7-112745424bbc.png" alt="add element"><br>0~9까지의 값이 <strong>할당되지 않았고</strong> 10번 인덱스부터 값이 할당 되었네요. javascript의 배열이 실상은 Array.prototype 을 상속받은 <code>객체</code>여서 그런게 아닐까 생각되네요.(근거 있는 답이 아니라 제 추측입니다.) 본론으로 돌아와서 값이 할당되지 않은 배열을 반환하기에 이 <code>a</code>라는 배열은 map이나 filter와 같은 메서드들은 제대로 동작을 하지 않게 될 것입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line">a.map(<span class="function"><span class="keyword">function</span>(<span class="params">v, i</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(v, i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>10번의 콘솔과 0이 10개가 담긴 배열을 반환해줘야할 것 처럼 보이지만 값이 할당되지 않은 배열이므로 예상했던 동작은 하지 않습니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line">a.push(<span class="string">'ha'</span>);</span><br><span class="line">a.map(<span class="function"><span class="keyword">function</span>(<span class="params">v, i</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(v, i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// ha 10</span></span><br><span class="line"><span class="comment">// [ 빈값 10개 , 0]</span></span><br></pre></td></tr></table></figure></p>
+<p>이렇게 값을 명시적으로 할당해주어야 ha라는 값과 10 이라는 인덱스를 보여주고, 10번 인덱스에 0이라는 값 가진 배열을 출력해주네요. <strong>결론은 할당 되지 않았기 떄문에 성능테스트를 할 때 비어있는 배열을 반환해준 것 이였습니다!</strong> 의식의 흐름에 맡겨 막 쓴 글이여서 두서없고 막 삼천포로 빠지고 그랬던거 같아요…</p>
+<p>　<br>　<br>ps - 불여우 콘솔에서는…<br><img src="https://cloud.githubusercontent.com/assets/14171723/26663318/e5f313a6-46c4-11e7-95a9-02d1fbd5fb09.png" alt="firefox console"></p>
+<p>이럴수가 ㅠ</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hyc7575.github.io/2017/05/31/2017-05-31-javascript-newArray/" data-id="clm570eau0009ijv2bfjhlqek" class="article-share-link">Share</a>
+      
+        <a href="http://hyc7575.github.io/2017/05/31/2017-05-31-javascript-newArray/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-array/">javascript array</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/02/2017-06-02-Nodejs-session-with-login/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node.js(express) - express-session 로그인(1/3)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/30/2017-05-30-nodejs-cookie/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node.js(express) - cookie-parser</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/잡담/">잡담</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html-css/">html/css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/기타/">기타</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/기타/SVG/">SVG</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LifeCycle/">LifeCycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bcrypt/">bcrypt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/body-parser/">body-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bodyParser/">bodyParser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie-parser/">cookie-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/custom-radio/">custom radio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-bind/">data bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/directive/">directive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs-layout/">ejs-layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express-session/">express-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form-submit/">form submit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geolocation/">geolocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google-map-api/">google map api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5-geolocation/">html5 geolocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input-radio/">input radio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-array/">javascript array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-server/">javascript server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multer/">multer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs-login/">nodejs login</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/route/">route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/router/">router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ryan/">ryan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-component/">vue component</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/">vue js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-project/">vue project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weather-api/">weather api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/디렉티브/">디렉티브</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/라이언/">라이언</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/라이프사이클/">라이프사이클</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생명주기/">생명주기</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/암호화/">암호화</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/지시자/">지시자</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/LifeCycle/" style="font-size: 10px;">LifeCycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bcrypt/" style="font-size: 10px;">bcrypt</a> <a href="/tags/body-parser/" style="font-size: 10px;">body-parser</a> <a href="/tags/bodyParser/" style="font-size: 10px;">bodyParser</a> <a href="/tags/cookie-parser/" style="font-size: 10px;">cookie-parser</a> <a href="/tags/css/" style="font-size: 11.43px;">css</a> <a href="/tags/custom-radio/" style="font-size: 11.43px;">custom radio</a> <a href="/tags/data-bind/" style="font-size: 10px;">data bind</a> <a href="/tags/directive/" style="font-size: 14.29px;">directive</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/ejs-layout/" style="font-size: 10px;">ejs-layout</a> <a href="/tags/express/" style="font-size: 15.71px;">express</a> <a href="/tags/express-session/" style="font-size: 12.86px;">express-session</a> <a href="/tags/form-submit/" style="font-size: 10px;">form submit</a> <a href="/tags/geolocation/" style="font-size: 10px;">geolocation</a> <a href="/tags/google-map-api/" style="font-size: 10px;">google map api</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/html5-geolocation/" style="font-size: 10px;">html5 geolocation</a> <a href="/tags/input-radio/" style="font-size: 11.43px;">input radio</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-array/" style="font-size: 10px;">javascript array</a> <a href="/tags/javascript-server/" style="font-size: 18.57px;">javascript server</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/multer/" style="font-size: 10px;">multer</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 18.57px;">nodejs</a> <a href="/tags/nodejs-login/" style="font-size: 12.86px;">nodejs login</a> <a href="/tags/route/" style="font-size: 10px;">route</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/ryan/" style="font-size: 10px;">ryan</a> <a href="/tags/server/" style="font-size: 18.57px;">server</a> <a href="/tags/vue/" style="font-size: 17.14px;">vue</a> <a href="/tags/vue-component/" style="font-size: 10px;">vue component</a> <a href="/tags/vue-js/" style="font-size: 17.14px;">vue js</a> <a href="/tags/vue-project/" style="font-size: 12.86px;">vue project</a> <a href="/tags/vue-cli/" style="font-size: 12.86px;">vue-cli</a> <a href="/tags/weather-api/" style="font-size: 10px;">weather api</a> <a href="/tags/디렉티브/" style="font-size: 14.29px;">디렉티브</a> <a href="/tags/라이언/" style="font-size: 10px;">라이언</a> <a href="/tags/라이프사이클/" style="font-size: 10px;">라이프사이클</a> <a href="/tags/생명주기/" style="font-size: 10px;">생명주기</a> <a href="/tags/암호화/" style="font-size: 10px;">암호화</a> <a href="/tags/지시자/" style="font-size: 14.29px;">지시자</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">9월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">12월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">4월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">3월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/09/05/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/21/2018-12-21-Vue-Segment/">Vue.js - iOS Segment 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/10/2018-09-10-image-retina/">img태그 retina사이즈 대응</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/2018-04-03-svg-ryan/">SVG - 심심해서 만들어본 라이언</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/22/2018-03-22-vue-cli-component/">Vue.js - Vue-cli를 이용한 vue 프로젝트 살펴보기 2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 keunhyeok jeon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hyc7575';
+  
+  var disqus_url = 'http://hyc7575.github.io/2017/05/31/2017-05-31-javascript-newArray/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

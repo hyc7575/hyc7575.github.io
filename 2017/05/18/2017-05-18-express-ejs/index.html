@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Node.js(express) - express ejs 템플릿 | hyc7575 blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Render ejsDirectory project node_modules views index.ejs layout.ejs   app.js package.json    12345npm init...npm i --save express ejs express-ejs-layouts 프로젝트 폴더에 접속하여 npm init으로 package.json 파일을 생성 후">
+<meta name="keywords" content="nodejs,javascript,javascript server,server,express,ejs,ejs-layout,layout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js(express) - express ejs 템플릿">
+<meta property="og:url" content="http://hyc7575.github.io/2017/05/18/2017-05-18-express-ejs/index.html">
+<meta property="og:site_name" content="hyc7575 blog">
+<meta property="og:description" content="Render ejsDirectory project node_modules views index.ejs layout.ejs   app.js package.json    12345npm init...npm i --save express ejs express-ejs-layouts 프로젝트 폴더에 접속하여 npm init으로 package.json 파일을 생성 후">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2023-09-04T17:51:29.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js(express) - express ejs 템플릿">
+<meta name="twitter:description" content="Render ejsDirectory project node_modules views index.ejs layout.ejs   app.js package.json    12345npm init...npm i --save express ejs express-ejs-layouts 프로젝트 폴더에 접속하여 npm init으로 package.json 파일을 생성 후">
+  
+    <link rel="alternate" href="/atom.xml" title="hyc7575 blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3869950789154316" crossorigin="anonymous"></script>
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hyc7575 blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hyc7575.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-05-18-express-ejs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/18/2017-05-18-express-ejs/" class="article-date">
+  <time datetime="2017-05-18T07:29:26.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node-js/">Node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js(express) - express ejs 템플릿
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Render-ejs"><a href="#Render-ejs" class="headerlink" title="Render ejs"></a>Render ejs</h2><h3 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h3><ul>
+<li>project<ul>
+<li>node_modules</li>
+<li>views<ul>
+<li>index.ejs</li>
+<li>layout.ejs</li>
+</ul>
+</li>
+<li>app.js</li>
+<li>package.json</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">npm i --save express ejs express-ejs-layouts</span><br></pre></td></tr></table></figure>
+<p>프로젝트 폴더에 접속하여 npm init으로 package.json 파일을 생성 후 express와 ejs, express-ejs-layouts를 설치합니다. express-ejs-layouts는 express에서 ejs의 다양한 layout 기능을 추가적으로 제공해줍니다.</p>
+<ul>
+<li>layout.ejs<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"ko"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        *&#123;margin: 0; padding: 0;&#125;</span></span><br><span class="line"><span class="undefined">        html, body &#123;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">        헤더영역</span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid #dedede;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">%-</span> <span class="attr">body</span> %&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">        푸터영역</span><br><span class="line">    <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%-</span> <span class="attr">script</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>view 페이지들의 layout 페이지입니다. <code>&lt;%- body %&gt;</code>부분에 컨텐츠가 들어가고, <code>&lt;%- script %&gt;</code>부분에 추출된 script 태그들이 들어갑니다. 설정 방법은 app.js에서 살펴보겠습니다.<br><del>code를 html형태로 했더니 하이라이팅이 조금 이상합니다 ㅠㅠ</del></p>
+<ul>
+<li>app.js<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="keyword">const</span> expressLayouts = <span class="built_in">require</span>(<span class="string">'express-ejs-layouts'</span>);</span><br><span class="line">　</span><br><span class="line">app.set(<span class="string">'views'</span>,__dirname + <span class="string">'/views'</span>);</span><br><span class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'ejs'</span>);</span><br><span class="line">　</span><br><span class="line"><span class="comment">// ejs-layouts setting</span></span><br><span class="line">app.set(<span class="string">'layout'</span>, <span class="string">'layout'</span>);</span><br><span class="line">app.set(<span class="string">"layout extractScripts"</span>, <span class="literal">true</span>);</span><br><span class="line">app.use(expressLayouts);</span><br><span class="line">　</span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.render(<span class="string">'index'</span>, &#123;</span><br><span class="line">        title: <span class="string">'타이틀 입니다.'</span>,</span><br><span class="line">        description: <span class="string">'타이틀에 대한 설명이 들어오게 되겠지요?'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>처음 등장하는 코드 위주로 알아보겠습니다.<br><code>app.set(&#39;views&#39;,__dirname + &#39;/views&#39;);</code> 이 코드는 view 파일들이 있는 경로를 설정하는 영역입니다. <code>__dirname</code>은 현재 app.js가 위치한 경로를 알려주는 Node.js의 전역변수인데, 우리는 이 코드를 통해서 app.js와 같은레벨에 있는 views 라는 폴더에 템플릿 파일들이 있다고 app에게 알려준 것 입니다.</p>
+<p><code>app.set(&#39;view engine&#39;, &#39;ejs&#39;);</code> 템플릿 엔진 ejs 사용하겠다고 선언한 것입니다. 이 선언을 함으로써 우리는 <a href="http://expressjs.com/ko/4x/api.html#res.render" target="_blank" rel="noopener">res.render</a> 메소드에서 .ejs를 생략할 수 있게되었습니다.</p>
+<p><code>app.set(&#39;layout&#39;, &#39;layout&#39;);</code> views/layout.ejs를 기본 레이아웃으로 설정합니다. layout.ejs의 <code>&lt;%- body %&gt;</code> 부분에 랜더링된 html 문자열이 들어갑니다.</p>
+<p><code>app.set(&quot;layout extractScripts&quot;, true);</code> 랜더링된 html에서 모든 script태그를 추출합니다. 이 script태그들은 layout.ejs에서 <code>&lt;%- script %&gt;</code> 부분에 들어가게 됩니다.</p>
+<p><code>res.render(&#39;index&#39;, [,locals], [,callback])</code> index.ejs 파일을 랜더링 합니다. locals는 객체형태이며 이 객체의 프로퍼티들은 랜더링 되는 view 페이지에서 변수로 사용이 가능합니다.</p>
+<ul>
+<li>index.ejs<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">title</span> %&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">console</span>.log(<span class="string">'script tag between h1 and p but..'</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">description</span> %&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>app.js 실행 후 접속하면 완성된 결과를 볼 수 있습니다. express-ejs-layouts 모듈은 이 외에도 꽤 다양한 기능을 제공하고 있으니 <a href="https://github.com/Soarez/express-ejs-layouts" target="_blank" rel="noopener">링크</a>에 접속하여 한번 읽어보시기 바랍니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hyc7575.github.io/2017/05/18/2017-05-18-express-ejs/" data-id="clm570ear0004ijv2eklf8p6j" class="article-share-link">Share</a>
+      
+        <a href="http://hyc7575.github.io/2017/05/18/2017-05-18-express-ejs/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejs/">ejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejs-layout/">ejs-layout</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-server/">javascript server</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/layout/">layout</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/">server</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/19/2017-05-19-nodejs-mysql/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Node.js - mysql 연결
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/16/2017-05-16-nodejs-express-router-middleware/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Node.js(express) - Router와 middleware</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/">Javascript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Javascript/잡담/">잡담</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html-css/">html/css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/기타/">기타</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/기타/SVG/">SVG</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LifeCycle/">LifeCycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/array/">array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bcrypt/">bcrypt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/body-parser/">body-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bodyParser/">bodyParser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie-parser/">cookie-parser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/custom-radio/">custom radio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-bind/">data bind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/directive/">directive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs/">ejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejs-layout/">ejs-layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express-session/">express-session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form-submit/">form submit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/geolocation/">geolocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google-map-api/">google map api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5-geolocation/">html5 geolocation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input-radio/">input radio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-array/">javascript array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-server/">javascript server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/">middleware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multer/">multer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs-login/">nodejs login</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/route/">route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/router/">router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ryan/">ryan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server/">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-component/">vue component</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/">vue js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-project/">vue project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weather-api/">weather api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/디렉티브/">디렉티브</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/라이언/">라이언</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/라이프사이클/">라이프사이클</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/생명주기/">생명주기</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/암호화/">암호화</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/지시자/">지시자</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/LifeCycle/" style="font-size: 10px;">LifeCycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/bcrypt/" style="font-size: 10px;">bcrypt</a> <a href="/tags/body-parser/" style="font-size: 10px;">body-parser</a> <a href="/tags/bodyParser/" style="font-size: 10px;">bodyParser</a> <a href="/tags/cookie-parser/" style="font-size: 10px;">cookie-parser</a> <a href="/tags/css/" style="font-size: 11.43px;">css</a> <a href="/tags/custom-radio/" style="font-size: 11.43px;">custom radio</a> <a href="/tags/data-bind/" style="font-size: 10px;">data bind</a> <a href="/tags/directive/" style="font-size: 14.29px;">directive</a> <a href="/tags/ejs/" style="font-size: 10px;">ejs</a> <a href="/tags/ejs-layout/" style="font-size: 10px;">ejs-layout</a> <a href="/tags/express/" style="font-size: 15.71px;">express</a> <a href="/tags/express-session/" style="font-size: 12.86px;">express-session</a> <a href="/tags/form-submit/" style="font-size: 10px;">form submit</a> <a href="/tags/geolocation/" style="font-size: 10px;">geolocation</a> <a href="/tags/google-map-api/" style="font-size: 10px;">google map api</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/html5-geolocation/" style="font-size: 10px;">html5 geolocation</a> <a href="/tags/input-radio/" style="font-size: 11.43px;">input radio</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-array/" style="font-size: 10px;">javascript array</a> <a href="/tags/javascript-server/" style="font-size: 18.57px;">javascript server</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/middleware/" style="font-size: 10px;">middleware</a> <a href="/tags/multer/" style="font-size: 10px;">multer</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 18.57px;">nodejs</a> <a href="/tags/nodejs-login/" style="font-size: 12.86px;">nodejs login</a> <a href="/tags/route/" style="font-size: 10px;">route</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/ryan/" style="font-size: 10px;">ryan</a> <a href="/tags/server/" style="font-size: 18.57px;">server</a> <a href="/tags/vue/" style="font-size: 17.14px;">vue</a> <a href="/tags/vue-component/" style="font-size: 10px;">vue component</a> <a href="/tags/vue-js/" style="font-size: 17.14px;">vue js</a> <a href="/tags/vue-project/" style="font-size: 12.86px;">vue project</a> <a href="/tags/vue-cli/" style="font-size: 12.86px;">vue-cli</a> <a href="/tags/weather-api/" style="font-size: 10px;">weather api</a> <a href="/tags/디렉티브/" style="font-size: 14.29px;">디렉티브</a> <a href="/tags/라이언/" style="font-size: 10px;">라이언</a> <a href="/tags/라이프사이클/" style="font-size: 10px;">라이프사이클</a> <a href="/tags/생명주기/" style="font-size: 10px;">생명주기</a> <a href="/tags/암호화/" style="font-size: 10px;">암호화</a> <a href="/tags/지시자/" style="font-size: 14.29px;">지시자</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">9월 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">12월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">4월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">3월 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/09/05/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/21/2018-12-21-Vue-Segment/">Vue.js - iOS Segment 만들기</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/10/2018-09-10-image-retina/">img태그 retina사이즈 대응</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/2018-04-03-svg-ryan/">SVG - 심심해서 만들어본 라이언</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/22/2018-03-22-vue-cli-component/">Vue.js - Vue-cli를 이용한 vue 프로젝트 살펴보기 2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 keunhyeok jeon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'hyc7575';
+  
+  var disqus_url = 'http://hyc7575.github.io/2017/05/18/2017-05-18-express-ejs/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
